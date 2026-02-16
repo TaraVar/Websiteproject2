@@ -1,0 +1,243 @@
+html,body{
+background-image: url(Images/Tausta.jpg);
+background-size: cover;
+margin:0;
+height: 100%;
+display: flex; 
+flex-direction: column;
+ gap: 20px;
+}
+
+
+header { 
+background-color: #947AE5; 
+padding: 40px;
+
+} 
+
+
+
+.logo { 
+max-height: 120px; 
+} 
+
+.ig-handle a {
+color: black; text-decoration: none;
+    } 
+
+.ig-handle a:hover {
+text-decoration: underline; 
+    }
+
+.nav-link {
+color: #000 ; 
+font-weight: bolder; 
+font-size: 20px;
+} 
+
+.language-switch {
+font-weight: 500; 
+color: #000; 
+font-size: 20px;
+}
+
+main {
+ flex: 1; }
+
+footer {
+    font-size: 16px;
+    background-color:#947AE5;
+    padding: 40px;
+    color:black;
+    margin-top: 80px;
+}
+
+
+.Tuotteet h1 {
+    background-color: #838DE6;
+    color: white;
+    max-width: 900px;
+    width: 100%;
+    margin: 16px auto 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+.Tuotteet h2{
+    margin-bottom:16px;
+    background-color: #838DE6;
+    color:white;
+    padding: 30px 40px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    float:right;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace
+}
+
+.Tuotteet p{
+    background-color: #838DE6;
+    color: white; 
+    width: 900px;
+    margin: 16px auto 0px auto;
+    font-family:'Courier New', Courier, monospace   
+}
+
+.focus{
+    float:right;
+}
+
+.ajankohtaista h1 {
+    background-color: #838DE6;
+    color: white;
+    max-width: 900px;
+    width: 100%;
+    margin: 16px auto 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ajankohtaista h2{
+  background-color: #434254;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 20px;
+  padding: 70px 100px;
+  max-width: 100%;
+  width: 100%;
+
+  
+
+}
+
+.ajankohtaistakuva{
+background-color: #838DE6;
+margin-top: 16px;
+
+}
+
+.kuvantausta{
+    background-color: #434254;
+    padding: 70px;
+    display:inline-block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.Svenska h1{
+    background-color: #838DE6;
+    color: white;
+    max-width: 900px;
+    width: 100%;
+    margin: 16px auto 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.Svenska p{
+  background-color: #434254;
+  color: white; 
+  width: 900px;
+  width: 100%;
+  margin: 16px auto 0px auto;
+  font-family:'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+.box {
+  padding: 90px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.info-box, .some-box {
+  background-color: #434254;
+  color: white;
+  width: 100%;
+}
+
+.uutuudet-box {
+  background-color: #838DE6;
+  color: white;
+}
+
+.info-box h1,
+.some-box h3 {
+  background-color: #434254;
+  padding: 10px;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  margin-bottom: 20px;
+  font-size: 30px;
+  
+}
+
+p{
+  color: white;
+  font-family:'Courier New', Courier, monospace;
+  width: 100%;
+}
+
+.uutuudet-box h2{
+ background-color: #838DE6;
+  padding: 10px;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.Yhteystiedot h1 {
+    background-color: #838DE6;
+    color: white;
+    max-width: 900px;
+    width: 100%;
+    margin: 16px auto 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.Yhteystiedot h2 {
+    background-color: #434254;
+    color: white;
+    padding: 80px 100px;
+    margin: 16px 0;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.Yhteystiedot h3 {
+    background-color: #838DE6;
+    color: white;
+    padding: 30px 40px;
+    margin-top: 80px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 22px;
+    }
+    h2, h3, p {
+        font-size: 16px;
+        padding: 20px;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+  
