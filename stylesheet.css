@@ -69,7 +69,6 @@ footer {
     padding: 30px 40px;
     margin-top: 16px;
     margin-bottom: 16px;
-    float:right;
     font-size: 20px;
     font-family:'Courier New', Courier, monospace
 }
@@ -82,9 +81,6 @@ footer {
     font-family:'Courier New', Courier, monospace   
 }
 
-.focus{
-    float:right;
-}
 
 .ajankohtaista h1 {
     background-color: #838DE6;
@@ -233,6 +229,25 @@ p{
         width: 100%;
     }
 }
+
+.tuoterivi {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+.tuotekortti {
+    text-align: center;
+}
+
+.tuotekortti img {
+    width: 60px;
+    cursor: pointer;
+}
+
 
 
 
