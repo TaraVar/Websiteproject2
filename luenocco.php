@@ -7,32 +7,38 @@ catch(Exception $e){
     header("Location:../html/yhteysvirhe.html");
     exit;
 }
+
+# BCAA
 $tulos=mysqli_query($yhteys, "select * from bcaa");
 
-print "<table border='1'>";
-while ($rivi=mysqli_fetch_object($tulos)){
-    print "<tr>
-        <td>$rivi->id</td>
-        <td>$rivi->maku</td>
-        <td>$rivi->kuvaus</td>
-        <td><img src='Images/$rivi->kuva' width='80'></td>
-      </tr>";
+print "<h2 class='tuoteotsikko'>BCAA-SARJA</h2>";
+print "<div class='tuoterivi'>";
 
+while ($rivi = mysqli_fetch_object($tulos)) {
+    print '
+        <div class="tuotekortti">
+            <img src="Images/'.$rivi->kuva.'" width="200" onclick="naytaTuote('.$rivi->id.', \'bcaa\')">
+        </div>
+    ';
 }
 
+print "</div>";
+
+# FOCUS
 $tulos=mysqli_query($yhteys, "select * from focus");
 
-print "<table border='1'>";
-while ($rivi=mysqli_fetch_object($tulos)){
-    print "<tr>
-        <td>$rivi->id</td>
-        <td>$rivi->maku</td>
-        <td>$rivi->kuvaus</td>
-        <td><img src='Images/$rivi->kuva' width='80'></td>
-      </tr>";
+print "<h2 class='tuoteotsikko'>FOCUS-SARJA</h2>";
+print "<div class='tuoterivi'>";
 
+while ($rivi = mysqli_fetch_object($tulos)) {
+    print '
+        <div class="tuotekortti">
+            <img src="Images/'.$rivi->kuva.'" width="200" onclick="naytaTuote('.$rivi->id.', \'focus\')">
+        </div>
+    ';
 }
 
-print "</table>";
+print "</div>";
+
 mysqli_close($yhteys);
 ?>
