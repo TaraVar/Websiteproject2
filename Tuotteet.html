@@ -37,27 +37,8 @@
     <main>
         <article>
             <h1 class="text-center">TUOTTEET</h1>
-            <div class="bcaa-teksti">
-            <div class="col-md-16">
-                <h2>BCAA-SARJA</h2>
-                </div>
-            </div>
-            <div class="kuvantausta">
-            <img src="Images/BCAAMaut.jpg" alt="BCAA Nocot" class="img-fluid">
-        </div>
-        
-        <div class="focus">
-            <div class="kuvantausta">
-            <img src="Images/FOCUSMaut.jpg" alt="FOCUS Nocot" class="img-fluid">
-            </div>
-            </div>
-            
-                <div class="focus-teksti">
-                    <div class="col-md-1">
-                        <h2>FOCUS-SARJA</h2>
-                </div>
-
-            </div>
+                <div id="tuoteinfo"></div>
+                <div id='Noccotaulukko'></div>
          </article>
     </main>
 
@@ -82,7 +63,6 @@ function luenocco(){
 </script>
 <p>
 </p>
-<div id='Noccotaulukko'></div>
 
 <script>
 function lisaanocco(lomake, taulu){
@@ -106,6 +86,21 @@ function lisaanocco(lomake, taulu){
 }
 </script>
 
+<script>
+function naytaTuote(id, taulu){
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            document.getElementById("tuoteinfo").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "haetuote.php?id=" + id + "&taulu=" + taulu, true);
+    xmlhttp.send();
+}
+</script>
+
+
+
 
 
 <form>
@@ -123,6 +118,7 @@ Kuva: <input type="text" name="kuva"><br>
 
 <p id='result'>
 </p>
+
 <!--Php tiedostojen asiat loppuu-->
                 
 
