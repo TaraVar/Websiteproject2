@@ -99,6 +99,32 @@ function naytaTuote(id, taulu){
 }
 </script>
 
+<script>
+function paivitaNocco() {
+    let nocco = {
+        id: document.getElementById("id").value,
+        maku: document.getElementById("maku").value,
+        kuvaus: document.getElementById("kuvaus").value,
+        kuva: document.getElementById("kuva").value,
+        taulu: document.getElementById("taulu").value
+    };
+
+    let json = JSON.stringify(nocco);
+
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            console.log("Päivitetty:", this.responseText);
+        }
+    };
+
+    xhr.open("POST", "paivitanocco.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("nocco=" + json);
+}
+</script>
+
+
 
 
 
@@ -115,6 +141,22 @@ Kuvaus: <input type="text" name="kuvaus"><br>
 Kuva: <input type="text" name="kuva"><br>
 <input type="button" value="Lisää FOCUS" onclick="lisaanocco(this.form, 'focus')">
 </form>
+
+<form onsubmit="event.preventDefault(); paivitaNocco();">
+    ID: <input type="text" id="id"><br>
+    Maku: <input type="text" id="maku"><br>
+    Kuvaus: <input type="text" id="kuvaus"><br>
+    Kuva: <input type="text" id="kuva"><br>
+
+    <select id="taulu">
+        <option value="bcaa">BCAA</option>
+        <option value="focus">FOCUS</option>
+    </select><br>
+
+    <button type="submit">Päivitä</button>
+</form>
+
+
 
 <p id='result'>
 </p>
