@@ -15,6 +15,7 @@ function tarkistaJson($json) {
 
     return $obj;
 }
+//Tarkistaa, että kaikissa kohdissa on tekstiä, jos ei niin false.
 
 $json = $_POST["nocco"] ?? "";
 $nocco = tarkistaJson($json);
@@ -23,10 +24,10 @@ if (!$nocco) {
     print "Täytä kaikki kentät";
     exit;
 }
-
+//Haetaan nocco ja ei löydy niin virhe.
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
-$yhteys = mysqli_connect("db", "root", "password", "nocco");
+$yhteys = mysqli_connect("db", "root", "password", "nocco"); //Tietokanta
 
 $taulu = $nocco->taulu; // bcaa tai focus
 
@@ -39,4 +40,5 @@ mysqli_stmt_execute($stmt);
 mysqli_close($yhteys);
 
 print "Lisätty tauluun: $taulu";
+// Lisätään oikeisiin tauluihin oikeat arvot.
 ?>
