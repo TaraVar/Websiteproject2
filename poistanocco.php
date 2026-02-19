@@ -1,39 +1,52 @@
 <?php
-require "db.php";
+function tarkistaJson($json) {
+    if (empty($json)) {
+        return false;
+    }
 
-// Sallitaan vain POST-pyynnöt
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    die("Virhe: Vain POST-pyynnöt sallittu.");
+    $obj = json_decode($json);
+
+    if (
+        !isset($obj->id) || !is_numeric($obj->id) ||
+        !isset($obj->taulu) || !in_array($obj->taulu, ["bcaa", "focus"])
+    ) {
+        return false;
+    }
+
+    $obj->id = (int)$obj->id;
+    return $obj;
 }
 
-if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    http_response_code(403);
-    die("Virhe: CSRF-tarkistus epäonnistui.");
+$json = $_POST["nocco"] ?? "";
+$nocco = tarkistaJson($json);
+
+if (!$nocco) {
+    echo "Virheellinen data";
+    exit;
 }
 
-// Tarkistetaan että id ja table on annettu
-if (!isset($_POST['id']) || !isset($_POST['table'])) {
-    http_response_code(400);
-    die("Virhe: ID tai taulu puuttuu.");
+mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+
+try {
+    $yhteys = mysqli_connect("db", "root", "password", "nocco");
+} catch (Exception $e) {
+    echo "Tietokantavirhe";
+    exit;
 }
 
-$id = intval($_POST['id']);
-$table = $_POST['table'];
+$taulu = $nocco->taulu;
+$id = $nocco->id;
 
-// Sallitut taulut (whitelist)
-$allowedTables = ["bcaa", "focus"];
+$sql = "DELETE FROM $taulu WHERE id = ?";
+$stmt = mysqli_prepare($yhteys, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
 
-if (!in_array($table, $allowedTables, true)) {
-    http_response_code(400);
-    die("Virhe: Taulu ei ole sallittu.");
+if (mysqli_stmt_affected_rows($stmt) > 0) {
+    echo "Tuote poistettu onnistuneesti.";
+} else {
+    echo "Tuotetta ei löytynyt tai sitä ei voitu poistaa.";
 }
 
-// Valmisteltu poisto
-$stmt = $pdo->prepare("DELETE FROM $table WHERE id = ?");
-$stmt->execute([$id]);
-
-// Palautetaan takaisin listaukseen
-header("Location: listaus.php");
-exit;
+mysqli_close($yhteys);
 ?>
