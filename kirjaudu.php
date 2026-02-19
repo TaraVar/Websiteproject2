@@ -24,4 +24,5 @@ if ($user && password_verify($password, $user->password_hash)) {
 } else {
     echo "Väärä tunnus tai salasana";
 }
+//Lukee käyttäjä nimen ja salasanan ja hakee ne tietokannasta ja tarkistaa ne . Jos on admin niin siirtyy admin.php ja jos jotain muuta noon siirtyy index.html
 ?>
