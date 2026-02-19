@@ -128,6 +128,29 @@ function paivitaNocco() {
 //Ensin luodaan tiedot lomakkeesta. Sitten luodaan nocco ja muutetaan se JSON:iksi. Haetaan tiedot paivitanocco.php. Lopuksi vastaus näkyy console.logissa.
 </script>
 
+<script>
+function poistaNocco(id, taulu) {
+    if (!confirm("Haluatko varmasti poistaa tämän tuotteen?")) {
+        return;
+    }
+
+    let data = { id: id, taulu: taulu };
+    let json = JSON.stringify(data);
+
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            alert(this.responseText);
+            luenocco(); // Päivitä tuotelista
+            document.getElementById("tuoteinfo").innerHTML = ""; // Tyhjennä tuoteinfo
+        }
+    };
+
+    xhr.open("POST", "poistanocco.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("nocco=" + json);
+}
+</script>
 
 
 
