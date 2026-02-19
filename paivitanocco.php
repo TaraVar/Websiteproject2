@@ -36,16 +36,17 @@ if ($taulu === "focus") {
          WHERE id=$nocco->id"
     );
 }
+//Päivittää oikean tuotteen oikeassa taulussa
 
 
-// BCAA
+// Hakee BCAA
 $bcaa = [];
 $tulos = mysqli_query($yhteys, "SELECT * FROM bcaa");
 while ($rivi = mysqli_fetch_object($tulos)) {
     $bcaa[] = $rivi;
 }
 
-// FOCUS
+// Hakee FOCUS
 $focus = [];
 $tulos = mysqli_query($yhteys, "SELECT * FROM focus");
 while ($rivi = mysqli_fetch_object($tulos)) {
@@ -63,6 +64,7 @@ function tarkistaJson($json) {
     if (empty($json)) {
         return false;
     }
+//Tarkistaa onko kentät olemassa
 
     $nocco = json_decode($json, false);
 
@@ -78,6 +80,7 @@ function tarkistaJson($json) {
 
     return $nocco;
 }
+//Jos jokin kenttä puuttuu tulee virhe
 
 
 ?>
