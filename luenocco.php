@@ -16,7 +16,7 @@ print "<div class='tuoterivi'>";
 
 while ($rivi = mysqli_fetch_object($tulos)) {
     print '
-        <div class="tuotekortti">
+        <div class="tuote">
             <img src="Images/'.$rivi->kuva.'" width="100" onclick="naytaTuote('.$rivi->id.', \'bcaa\')">
         </div>
     ';
@@ -32,7 +32,7 @@ print "<div class='tuoterivi'>";
 
 while ($rivi = mysqli_fetch_object($tulos)) {
     print '
-        <div class="tuotekortti">
+        <div class="tuote">
             <img src="Images/'.$rivi->kuva.'" width="100" onclick="naytaTuote('.$rivi->id.', \'focus\')">
         </div>
     ';
