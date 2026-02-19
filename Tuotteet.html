@@ -43,7 +43,7 @@
     </main>
 
 <!--php tiedostojen tiedot alkaa-->
-<script>
+<script> //Sivu latautuu ja kutsuu luenocon
 window.onload = function() {
     luenocco();
 };
@@ -60,6 +60,7 @@ function luenocco(){
 	xmlhttp.open("GET", "luenocco.php", true);
 	xmlhttp.send();	
 }
+//Luo AJAX-pyynnön ja hakee luenocco.php tiedot ja tuo ne sivulle.
 </script>
 <p>
 </p>
@@ -84,6 +85,7 @@ function lisaanocco(lomake, taulu){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("nocco=" + json);
 }
+// Pystyy lisätä tuotteita sivulle ja taulu meinaa joko focus tai bcaa määritelty aikasemmin. Hakee tiedot lisaanocco.php.
 </script>
 
 <script>
@@ -97,6 +99,7 @@ function naytaTuote(id, taulu){
     xmlhttp.open("GET", "haetuote.php?id=" + id + "&taulu=" + taulu, true);
     xmlhttp.send();
 }
+//Hakee haetuote.php oikean tuotteen tietokannasta kun sivulla painaa tuotetta ja antaa sivulle sen tuotteen tiedot.
 </script>
 
 <script>
@@ -122,6 +125,7 @@ function paivitaNocco() {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("nocco=" + json);
 }
+//Ensin luodaan tiedot lomakkeesta. Sitten luodaan nocco ja muutetaan se JSON:iksi. Haetaan tiedot paivitanocco.php. Lopuksi vastaus näkyy console.logissa.
 </script>
 
 
@@ -135,14 +139,15 @@ Kuvaus: <input type="text" name="kuvaus"><br>
 Kuva: <input type="text" name="kuva"><br>
 <input type="button" value="Lisää BCAA" onclick="lisaanocco(this.form, 'bcaa')">
 </form>
+<!--Bcaa lisäys painikkeet-->
 <form>
 Maku: <input type="text" name="maku"><br>
 Kuvaus: <input type="text" name="kuvaus"><br>
 Kuva: <input type="text" name="kuva"><br>
 <input type="button" value="Lisää FOCUS" onclick="lisaanocco(this.form, 'focus')">
 </form>
-
-<form onsubmit="event.preventDefault(); paivitaNocco();">
+<!--Focus lisäys painikkeet-->
+<form onsubmit="event.preventDefault(); paivitaNocco();"> <!--Estää lomaketta lataamasta sivua uudelleen ja kutsuu javascript funktiota-->
     ID: <input type="text" id="id"><br>
     Maku: <input type="text" id="maku"><br>
     Kuvaus: <input type="text" id="kuvaus"><br>
@@ -155,6 +160,7 @@ Kuva: <input type="text" name="kuva"><br>
 
     <button type="submit">Päivitä</button>
 </form>
+<!--Lomake joka tuo sivulle painikkeet-->
 <form action="kirjaudu.php" method="post">
     Käyttäjänimi: <input type="text" name="username"><br><br>
     Salasana: <input type="password" name="password"><br><br>
@@ -163,6 +169,7 @@ Kuva: <input type="text" name="kuva"><br>
 
 <p id='result'>
 </p>
+<!--Kirjautumis painike-->
 
 <!--Php tiedostojen asiat loppuu-->
                 
