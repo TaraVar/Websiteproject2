@@ -239,11 +239,11 @@ p{
 }
 
 
-.tuotekortti {
+.tuote {
     text-align: center;
 }
 
-.tuotekortti img {
+.tuote img {
     width: 60px;
     cursor: pointer;
 }
