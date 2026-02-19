@@ -10,10 +10,6 @@ $rivi = mysqli_fetch_object($tulos);
 
 echo "<h2>$rivi->maku</h2>";
 echo "<p>$rivi->kuvaus</p>";
-echo "<img src='Images/$rivi->kuva' width='200'>";
-
-echo "<h2>$rivi->maku</h2>";
-echo "<p>$rivi->kuvaus</p>";
 echo "<img src='Images/$rivi->kuva' width='200'><br><br>";
 echo "<button onclick=\"poistaNocco($rivi->id, '$taulu')\">Poista tuote</button>";
 //Nää neljä echoa lisätty nocon poisto ominaisuuteen. 
