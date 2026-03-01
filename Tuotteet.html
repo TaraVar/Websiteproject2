@@ -23,7 +23,7 @@
                 <nav class="d-flex justify-content-end align-items-center">
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="index.html">Etusivu</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="Tuotteet.html">Tuotteet</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="Tuotteet.php">Tuotteet</a></li> 
                         <li class="nav-item"><a class="nav-link" href="Yhteystiedot.html">Yhteystiedot</a></li> 
                         <li class="nav-item"><a class="nav-link" href="Ajankohtaista.html">Ajankohtaista</a></li>
                     </ul>
@@ -155,6 +155,11 @@ function poistaNocco(id, taulu) {
 
 
 
+<form action="tarkistakirjautuminen.php" method="post">
+Tunnus: <input type="text" name="tunnus" value=""><br>
+Salasana: <input type="password" name="salasana" value=""><br>
+<input type="submit" name="ok" value="OK"><br>
+</form>
 
 
 <form>
@@ -185,7 +190,6 @@ Kuva: <input type="text" name="kuva"><br>
     <button type="submit">Päivitä</button>
 </form>
 <!--Lomake joka tuo sivulle painikkeet-->
-
 
 <!--Php tiedostojen asiat loppuu-->
                 
