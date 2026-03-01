@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["user_ok"])){
+	$_SESSION["paluuosoite"]="Tuotteet.html";
+	header("Location:Tuotteet.html");
+	exit;
+}
+
+
 function tarkistaJson($json) {
     if (empty($json)) {
         return false;
