@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["user_ok"])){
+	$_SESSION["paluuosoite"]="Tuotteet.html";
+	header("Location:Tuotteet.html");
+	exit;
+}
+
 $json = isset($_POST["nocco"]) ? $_POST["nocco"] : "";
 
 if (!($nocco = tarkistaJson($json))) {
