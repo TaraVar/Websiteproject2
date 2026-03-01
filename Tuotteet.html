@@ -79,6 +79,7 @@ function lisaanocco(lomake, taulu){
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("result").innerHTML = this.responseText;
+            luenocco();
         }
     };
     xmlhttp.open("POST", "lisaanocco.php", true);
@@ -184,15 +185,7 @@ Kuva: <input type="text" name="kuva"><br>
     <button type="submit">Päivitä</button>
 </form>
 <!--Lomake joka tuo sivulle painikkeet-->
-<form action="kirjaudu.php" method="post">
-    Käyttäjänimi: <input type="text" name="username"><br><br>
-    Salasana: <input type="password" name="password"><br><br>
-    <button type="submit">Kirjaudu</button>
-</form>
 
-<p id='result'>
-</p>
-<!--Kirjautumis painike-->
 
 <!--Php tiedostojen asiat loppuu-->
                 
