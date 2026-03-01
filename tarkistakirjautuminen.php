@@ -5,7 +5,7 @@ if (isset($_POST["tunnus"]) && isset($_POST["salasana"])) {
     $tunnus = $_POST["tunnus"];
     $salasana = $_POST["salasana"];
 } else {
-    header("Location: rekisteroityminen.html");
+    header("Location: rekisteröityminen.html");
     exit;
 }
 
@@ -21,10 +21,10 @@ $tulos = mysqli_stmt_get_result($stmt);
 
 if ($rivi = mysqli_fetch_object($tulos)) {
 
-    $_SESSION["user_ok"] = 1;
+    $_SESSION["user_ok"] = "ok";
 
     if (isset($_SESSION["paluuosoite"])) {
-        header("Location: " . $_SESSION["paluuosoite"]);
+        header("Location: Tuotteet.php" . $_SESSION["paluuosoite"]);
     } else {
         header("Location: Tuotteet.php");
     }
