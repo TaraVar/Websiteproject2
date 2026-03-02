@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$env = parse_ini_file(__DIR__ . "/.env");
+$env = parse_ini_file(__DIR__ . "/.hti-env");
 
 $ADMIN_USER = $env["ADMIN_USER"];
 $ADMIN_PASS = $env["ADMIN_PASS"];
@@ -43,3 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
+
