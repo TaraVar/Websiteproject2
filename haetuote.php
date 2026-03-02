@@ -2,7 +2,7 @@
 $id = $_GET["id"];
 $taulu = $_GET["taulu"]; // bcaa tai focus
 
-$yhteys = mysqli_connect("db", "root", "password", "nocco");
+$env = parse_ini_file(DIR . "/.hti-env");
 
 $sql = "SELECT * FROM $taulu WHERE id=$id";
 $tulos = mysqli_query($yhteys, $sql);
