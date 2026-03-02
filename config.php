@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$env = parse_ini_file(__DIR__ . "/.env");
+$env = parse_ini_file(__DIR__ . "/.hti-env");
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
@@ -18,3 +18,4 @@ try {
     exit;
 }
 ?>
+
