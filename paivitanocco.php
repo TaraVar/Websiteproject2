@@ -15,7 +15,7 @@ $yhteys = mysqli_connect(
     $env["DB_HOST"],
     $env["DB_USER"],
     $env["DB_PASS"],
-    $env["DB_NAME"],
+    $env["DB_NAME"]
 );
 
 $json = isset($_POST["nocco"]) ? $_POST["nocco"] : "";
