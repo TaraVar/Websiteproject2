@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin'])) {
     die("Pääsy estetty.");
 }
 
-$env = parse_ini_file(__DIR__ . "/.env");
+$env = parse_ini_file(__DIR__ . "/.hti-env");
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,3 +32,4 @@ $env = parse_ini_file(__DIR__ . "/.env");
 
 </body>
 </html>
+
