@@ -24,7 +24,7 @@ if ($rivi = mysqli_fetch_object($tulos)) {
     $_SESSION["user_ok"] = "ok";
 
     if (isset($_SESSION["paluuosoite"])) {
-        header("Location: Tuotteet.php" . $_SESSION["paluuosoite"]);
+        header("Location: " . $_SESSION["paluuosoite"]);
     } else {
         header("Location: Tuotteet.php");
     }
