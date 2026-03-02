@@ -7,6 +7,17 @@ if (!isset($_SESSION["user_ok"])){
 	exit;
 }
 
+mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+
+$env = parse_ini_file(__DIR__ . "/.hti-env");
+
+$yhteys = mysqli_connect(
+    $env["DB_HOST"],
+    $env["DB_USER"],
+    $env["DB_PASS"],
+    $env["DB_NAME"],
+);
+
 $json = isset($_POST["nocco"]) ? $_POST["nocco"] : "";
 
 if (!($nocco = tarkistaJson($json))) {
@@ -14,14 +25,7 @@ if (!($nocco = tarkistaJson($json))) {
     exit;
 }
 
-mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
-try {
-$env = parse_ini_file(DIR . "/.hti-env");
-} catch (Exception $e) {
-    print "Yhteysvirhe";
-    exit;
-}
 
 $taulu = $nocco->taulu;
 
