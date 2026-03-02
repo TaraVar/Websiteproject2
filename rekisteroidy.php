@@ -11,11 +11,11 @@ if (isset($_POST["tunnus"]) && isset($_POST["salasana"]) &&
         exit;
     }
 
-    $yhteys=mysqli_connect("db", "root", "password", "nocco");
-    $hash = md5($salasana); 
-    $sql = "INSERT INTO Users (tunnus, salasana, etunimi, sukunimi) VALUES (?, ?, ?, ?)";
-    $stmt=mysqli_prepare($yhteys, $sql);
-    mysqli_stmt_bind_param($stmt, "ssss", $tunnus, $hash, $etunimi, $sukunimi);
-    mysqli_stmt_execute($stmt);
-    exit;
-    ?>
+$env = parse_ini_file(DIR . "/.hti-env");
+$hash = md5($salasana); 
+$sql = "INSERT INTO Users (tunnus, salasana, etunimi, sukunimi) VALUES (?, ?, ?, ?)";
+$stmt=mysqli_prepare($yhteys, $sql);
+mysqli_stmt_bind_param($stmt, "ssss", $tunnus, $hash, $etunimi, $sukunimi);
+mysqli_stmt_execute($stmt);
+exit;
+?>
