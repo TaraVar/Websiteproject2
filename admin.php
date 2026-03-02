@@ -4,8 +4,16 @@ session_start();
 if (!isset($_SESSION['admin'])) {
     die("Pääsy estetty.");
 }
+mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
 $env = parse_ini_file(__DIR__ . "/.hti-env");
+
+$yhteys = mysqli_connect(
+    $env["DB_HOST"],
+    $env["DB_USER"],
+    $env["DB_PASS"],
+    $env["DB_NAME"],
+);
 ?>
 <!DOCTYPE html>
 <html>
