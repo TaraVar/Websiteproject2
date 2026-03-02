@@ -17,7 +17,7 @@ if (!($nocco = tarkistaJson($json))) {
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
 try {
-    $yhteys = mysqli_connect("db", "root", "password", "nocco");
+$env = parse_ini_file(DIR . "/.hti-env");
 } catch (Exception $e) {
     print "Yhteysvirhe";
     exit;
@@ -92,3 +92,4 @@ function tarkistaJson($json) {
 
 
 ?>
+
