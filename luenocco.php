@@ -1,12 +1,21 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-$env = parse_ini_file(DIR . "/.hti-env");
+$env = parse_ini_file(__DIR__ . "/.hti-env");
+
 }
 catch(Exception $e){
     header("Location:../html/yhteysvirhe.html");
     exit;
 }
+
+$yhteys = mysqli_connect(
+    $env["DB_HOST"],
+    $env["DB_USER"],
+    $env["DB_PASS"],
+    $env["DB_NAME"],
+);
+
 
 # BCAA
 $tulos=mysqli_query($yhteys, "select * from bcaa");
