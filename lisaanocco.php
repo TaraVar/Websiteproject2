@@ -3,9 +3,20 @@ session_start();
 
 if (!isset($_SESSION["user_ok"])){
 	$_SESSION["paluuosoite"]="Tuotteet.html";
-	header("Location:Tuotteet.html")
-	exit;
+	header("Location:Tuotteet.html");
+    exit;
 }
+
+mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+
+$env = parse_ini_file(__DIR__ . "/.hti-env");
+
+$yhteys = mysqli_connect(
+    $env["DB_HOST"],
+    $env["DB_USER"],
+    $env["DB_PASS"],
+    $env["DB_NAME"],
+);
 
 
 function tarkistaJson($json) {
@@ -32,10 +43,7 @@ if (!$nocco) {
     print "Täytä kaikki kentät";
     exit;
 }
-//Haetaan nocco ja ei löydy niin virhe.
-mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
-$env = parse_ini_file(__DIR__ . "/.hti-env");
 
 $taulu = $nocco->taulu; // bcaa tai focus
 
