@@ -35,7 +35,7 @@ if (!$nocco) {
 //Haetaan nocco ja ei löydy niin virhe.
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
-$yhteys = mysqli_connect("db", "root", "password", "nocco"); //Tietokanta
+$env = parse_ini_file(__DIR__ . "/.hti-env");
 
 $taulu = $nocco->taulu; // bcaa tai focus
 
