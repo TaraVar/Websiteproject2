@@ -11,7 +11,16 @@ if (isset($_POST["tunnus"]) && isset($_POST["salasana"]) &&
         exit;
     }
 
-$env = parse_ini_file(DIR . "/.hti-env");
+$env = parse_ini_file(__DIR__ . "/.hti-env");
+
+$yhteys = mysqli_connect(
+    $env["DB_HOST"],
+    $env["DB_USER"],
+    $env["DB_PASS"],
+    $env["DB_NAME"]
+);
+
+
 $hash = md5($salasana); 
 $sql = "INSERT INTO Users (tunnus, salasana, etunimi, sukunimi) VALUES (?, ?, ?, ?)";
 $stmt=mysqli_prepare($yhteys, $sql);
