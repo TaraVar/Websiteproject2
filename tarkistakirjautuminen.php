@@ -9,7 +9,7 @@ if (isset($_POST["tunnus"]) && isset($_POST["salasana"])) {
     exit;
 }
 
-$yhteys = mysqli_connect("db", "root", "password", "nocco");
+$env = parse_ini_file(DIR . "/.hti-env");
 
 $hash = md5($salasana);
 
