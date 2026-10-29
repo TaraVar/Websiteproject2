@@ -1,0 +1,9 @@
+DB_HOST=db
+DB_USER=root
+DB_PASS=password 
+DB_NAME=nocco
+ADMIN_USER=admin
+ADMIN_PASS=admin123
+
+
+
